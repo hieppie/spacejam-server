@@ -3,43 +3,43 @@ const mongoose = require('mongoose')
 
 const playerSchema = new mongoose.Schema(
   {
-    Name: {
+    name: {
       type: String,
       required: true
     },
-    Points: {
+    points: {
       type: String,
       required: true
     },
-    Rebounds: {
+    rebounds: {
       type: String,
       required: true
     },
-    Assists: {
+    assists: {
       type: String,
       required: true
     },
-    Threeptm: {
+    threeptm: {
       type: String,
       required: true
     },
-    Steals: {
+    steals: {
       type: String,
       required: true
     },
-    Blocks: {
+    blocks: {
       type: String,
       required: true
     },
-    FGPercentage: {
+    fgpct: {
       type: String,
       required: true
     },
-    FTPercentage: {
+    ftpct: {
       type: String,
       required: true
     },
-    Turnovers: {
+    turnovers: {
       type: String,
       required: true
     },

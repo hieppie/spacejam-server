@@ -9,54 +9,55 @@ const requireToken = passport.authenticate('bearer', { session: false })
 const Team = require('./../models/team')
 
 router.post('/players', requireToken, (req, res, next) => {
-	const questionData = req.body.question
+  const playerData = req.body.player
 
-	const teamId = playerData.teamId
+  const teamId = playerData.teamId
 
-	Team.findById(teamId)
-		// .then(handle404)
-		.then((team) => {
-			team.questions.push(playerData)
+  Team.findById(teamId)
+  // .then(handle404)
+    .then((team) => {
+      team.players.push(playerData)
 
-			return team.save()
-		})
-		.then((team) => res.status(201).json({ team: team }))
-		.catch(next)
+      return team.save()
+    })
+    .then((team) => res.status(201).json({ team: team }))
+    .catch(next)
 })
 
-router.patch('/questions/:questionID', requireToken, (req, res, next) => {
-	const playerID = req.params.playerID
-	const playerData = req.body.player
-	const playerID = playerData.teamId
+router.patch('/players/:playerID', requireToken, (req, res, next) => {
+  const playerID = req.params.playerID
+  const playerData = req.body.player
+  const teamID = playerData.teamId
 
-	Team.findById(teamID)
-		// .then(handle404)
-		.then((team) => {
-			const player = team.players.id(playerID)
+  Team.findById(teamID)
+  // .then(handle404)
+    .then((team) => {
+      const player = team.players.id(playerID)
 
-			player.set(playerData)
+      player.set(playerData)
 
-			return Team.save()
-		})
-		.then(() => res.sendStatus(204))
-		.catch(next)
+      return team.save()
+    })
+    .then(() => res.sendStatus(204))
+    .catch(next)
 })
 
 router.delete('/players/:playerID', requireToken, (req, res, next) => {
-	const playerID = req.params.playerID
-	const teamID = req.body.player.teamId
+  const playerID = req.params.playerID
+  const teamID = req.body.player.teamId
+  console.log(teamID)
 
-	Team.findById(teamID)
-		// .then(handle404)
-		.then((team) => {
-			const player = team.players.id(playerID)
+  Team.findById(teamID)
+  // .then(handle404)
+    .then((team) => {
+      const player = team.players.id(playerID)
 
-			player.remove()
+      player.remove()
 
-			return team.save()
-		})
-		.then(() => res.sendStatus(204))
-		.catch(next)
+      return team.save()
+    })
+    .then(() => res.sendStatus(204))
+    .catch(next)
 })
 
 module.exports = router
