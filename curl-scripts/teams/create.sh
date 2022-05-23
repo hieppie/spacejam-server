@@ -2,6 +2,8 @@
 
 API="http://localhost:4741"
 URL_PATH="/teams"
+TOKEN="0668bec6ee36d24c8c87ff28b544b29a"
+NAME="Atlanta Hawks"
 
 curl "${API}${URL_PATH}" \
   --include \
@@ -10,8 +12,7 @@ curl "${API}${URL_PATH}" \
   --header "Authorization: Bearer ${TOKEN}" \
   --data '{
     "team": {
-      "text": "'"${TEXT}"'",
-      "title": "'"${TITLE}"'"
+      "name": "'"${NAME}"'"
     }
   }'
 
