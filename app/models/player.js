@@ -9,39 +9,39 @@ const playerSchema = new mongoose.Schema(
     },
     points: {
       type: String,
-      required: true
+      required: false
     },
     rebounds: {
       type: String,
-      required: true
+      required: false
     },
     assists: {
       type: String,
-      required: true
+      required: false
     },
     threeptm: {
       type: String,
-      required: true
+      required: false
     },
     steals: {
       type: String,
-      required: true
+      required: false
     },
     blocks: {
       type: String,
-      required: true
+      required: false
     },
     fgpct: {
       type: String,
-      required: true
+      required: false
     },
     ftpct: {
       type: String,
-      required: true
+      required: false
     },
     turnovers: {
       type: String,
-      required: true
+      required: false
     },
     // responses: [responseSchema],
     team: {

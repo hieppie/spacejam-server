@@ -2,7 +2,7 @@
 
 API="http://localhost:4741"
 URL_PATH="/teams"
-TOKEN="922f17a8e150cc4688f1081d2e2f4bf8"
+TOKEN="63905684350e6933fbc5f1cfc80eb724"
 
 
 curl "${API}${URL_PATH}" \
